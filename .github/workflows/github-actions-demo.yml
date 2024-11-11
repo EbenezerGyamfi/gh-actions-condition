@@ -16,3 +16,5 @@ jobs:
         run: ls ${{github.workspace}}
       - run: echo "The Jobs status is ${{job.status}}"
       - run: echo "Output secret code for testing is ${{secrets.TEST}}"
+      - run: |
+          example-command "$super_secret"
