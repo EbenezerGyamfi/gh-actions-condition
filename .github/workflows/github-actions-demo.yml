@@ -3,7 +3,7 @@ run-name: ${{github.actor}} is running this workflow
 on: push
 jobs: 
   Explore-Github-Actions:
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     steps:
       - run: echo "The job is automaticall triggered by ${{github.event_name}}"
       - run: echo "This job is running on ${{runner.os}} server"
