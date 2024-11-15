@@ -7,9 +7,15 @@ jobs:
     steps:
       - name: Run First
         run: echo "Running first"
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run Test
+        run: npm run test
     
   second-job:
-    runs-on: ubuntu-
+    runs-on: ubuntu-latest
     name: Second Job
     needs: first-job
     steps:
