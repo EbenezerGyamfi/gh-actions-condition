@@ -1,25 +1,17 @@
-name: Github Actions Demo
-run-name: ${{github.actor}} is running this workflow
+name: delve-into-job
 on: push
-jobs: 
-  Explore-Github-Actions:
+jobs:
+  first-job:
     runs-on: ubuntu-latest
+    name: First Job
     steps:
-      - run: echo "The job is automaticall triggered by ${{github.event_name}}"
-      - run: echo "This job is running on ${{runner.os}} server"
-      - run: echo "The name of your branch is ${{github.ref}} and repository is ${{github.repository}}"
-      - name: checkout code
-        uses: actions/checkout@v2
-      - run : echo "The github repository ${{github.repository}} has been cloned to the runner"
-      - run: echo "The workflow is now ready to test your code on the runner"
-      - name: list-files
-        run: ls ${{github.workspace}}
-      - run: echo "The Jobs status is ${{job.status}}"
-      - run: echo "Output secret code for testing is ${{secrets.TEST}}"
-
-  deploy:
-      runs-on: ubuntu-latest
-      needs: [Explore-Github-Actions]
-      steps:
-        - uses: actions/checkout@v2
-        - run: echo "Deploying 101...."  
+      - name: Run First
+        run: echo "Running first"
+    
+  second-job:
+    runs-on: ubuntu-
+    name: Second Job
+    needs: first-job
+    steps:
+      - name: Run Second
+        run: echo "Running second"
