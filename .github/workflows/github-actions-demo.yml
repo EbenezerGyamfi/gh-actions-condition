@@ -29,6 +29,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Second Job
     needs: first-job
+    if: ${{always()}}
     steps:
       - name: Run Second
         run: echo "Running second"
+
+        
